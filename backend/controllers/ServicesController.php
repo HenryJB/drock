@@ -6,6 +6,7 @@ use Yii;
 use common\models\Service;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -66,8 +67,19 @@ class ServicesController extends Controller
     {
         $model = new Service();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+          $model->photo = UploadedFile::getInstance($model, 'photo');
+          $model->date = date('Y-m-d');
+
+
+
+            if ($model->save()) {
+                if($model->photo!==null){
+                   $model->upload();
+                }   
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
         }
 
         return $this->render('create', [

@@ -1,6 +1,6 @@
 <?php
 /**
- * The manifest of files that are local to specific environment.
+ * The manifest agency that are local to specific environment.
  * This file returns a list of environments that the application
  * may be installed under. The returned data must be in the following
  * format:
@@ -34,8 +34,10 @@ return [
         'setWritable' => [
             'backend/runtime',
             'backend/web/assets',
-            'frontend/runtime',
-            'frontend/web/assets',
+            'agency/runtime',
+            'agency/web/assets',
+            'main/runtime',
+            'main/web/assets',
         ],
         'setExecutable' => [
             'yii',
@@ -43,7 +45,8 @@ return [
         ],
         'setCookieValidationKey' => [
             'backend/config/main-local.php',
-            'frontend/config/main-local.php',
+            'agency/config/main-local.php',
+            'main/config/main-local.php',
         ],
     ],
     'Production' => [
@@ -51,15 +54,18 @@ return [
         'setWritable' => [
             'backend/runtime',
             'backend/web/assets',
-            'frontend/runtime',
-            'frontend/web/assets',
+            'agency/runtime',
+            'agency/web/assets',
+            'main/runtime',
+            'main/web/assets',
         ],
         'setExecutable' => [
             'yii',
         ],
         'setCookieValidationKey' => [
             'backend/config/main-local.php',
-            'frontend/config/main-local.php',
+            'agency/config/main-local.php',
+            'main/config/main-local.php',
         ],
     ],
 ];

@@ -242,7 +242,7 @@ AppAsset::register($this);
                                 <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
                                 <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                 <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="site/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -259,13 +259,13 @@ AppAsset::register($this);
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="nav-devider"></li>
-                    <li class="nav-label">Dashboard</li>
+                    <li class="nav-label"><?= Html::a('Dashboard', ['site/index'], ['class' => '']) ?></li>
 
                     <li class="nav-label">Apps</li>
                     <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Requests</span></a>
                         <ul aria-expanded="false" class="collapse">
 
-                            <li><?= Html::a('Compose', ['mail/create'], ['class' => '']) ?></a></li>
+                            <li><?= Html::a('Compose', ['mail/create'], ['class' => '']) ?></li>
                             <li><?= Html::a('Read', ['site/index'], ['class' => '']) ?></li>
                             <li><?= Html::a('Inbox', ['site/index'], ['class' => '']) ?></li>
                         </ul>
@@ -303,6 +303,7 @@ AppAsset::register($this);
                         <ul aria-expanded="false" class="collapse">
                             <li><?= Html::a('New', ['portfolios/create'], ['class' => '']) ?></li>
                             <li><?= Html::a('Portfolios', ['portfolios/index'], ['class' => '']) ?></li>
+                            <li><?= Html::a('Portfolios Galleries', ['portfolio-images/index'], ['class' => '']) ?></li>
 
                         </ul>
                     </li>

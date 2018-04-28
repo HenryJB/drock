@@ -11,33 +11,31 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="portfolio-index">
 
-  <div class="row">
-      <div class="col-12">
-          <div class="card">
-              <div class="card-body">
+    <h3><?= Html::encode($this->title) ?></h3>
 
-                  <h3><?= Html::encode($this->title) ?></h3>
+    <p>
+        <?= Html::a('Create Portfolio', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
-                  <p>
-                      <?= Html::a('Create Portfolio', ['create'], ['class' => 'btn btn-success']) ?>
-                  </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'title',
+            'subtitle',
+            'description:ntext',
+            ['attribute'=>'client_id',
+            'value'=>function ($model)
+            {
+              return $model->client->name ;
+            }],
 
-                  <?= GridView::widget([
-                      'dataProvider' => $dataProvider,
-                      'columns' => [
-                          ['class' => 'yii\grid\SerialColumn'],
+            //'year',
+            //'websiteurl',
+            //'date_executed',
+            //'date',
 
-                          'id',
-                          'title',
-                          'description:ntext',
-                          'date_executed',
-                          'date',
-
-                          ['class' => 'yii\grid\ActionColumn'],
-                      ],
-                  ]); ?>
-                </div>
-              </div>
-           </div>
-       </div>
-   </div>
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

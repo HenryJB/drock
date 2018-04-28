@@ -666,7 +666,7 @@ a,
 button {
   outline: none!important;
   text-decoration: none!important;
-  color: #26dad2;
+  color: #007bff;
   transition: all 0.2s ease 0s;
 }
 a.active,

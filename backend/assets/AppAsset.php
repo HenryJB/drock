@@ -20,7 +20,7 @@ class AppAsset extends AssetBundle
         'css/style.css'
     ];
     public $js = [
-      'js/lib/jquery/jquery.min.js',
+  
       'js/lib/bootstrap/js/popper.min.js',
       'js/lib/bootstrap/js/bootstrap.min.js',
       'js/jquery.slimscroll.js',

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\About */
@@ -34,8 +35,10 @@ use dosamigos\tinymce\TinyMce;
                       'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
                   ]
               ]);?>
-
-                <?= $form->field($model, 'photo')->fileInput() ?>
+                <?= $form->field($model, 'photo')->widget(FileInput::classname(), [
+                    'options' => ['accept' => 'image/*'],
+                  ]);
+               ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
