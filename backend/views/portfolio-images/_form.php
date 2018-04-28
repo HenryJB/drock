@@ -26,7 +26,7 @@ use common\models\Portfolio;
     <?= $form->field($model, 'photos[]')->widget(FileInput::classname(), [
         'options' => ['accept' => 'image/*', 'multiple' => true],
         'pluginLoading' => true,
-        'overwriteInitial'=>false,
+        
 
       ]);
    ?>
