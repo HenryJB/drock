@@ -2,11 +2,9 @@
 
 namespace common\models;
 
-use Yii;
 use yii\imagine\Image as ImageBox;
 use Imagine\Image\Box;
 use yii\helpers\Url;
-
 
 /**
  * This is the model class for table "clients".
@@ -54,15 +52,13 @@ class Client extends \yii\db\ActiveRecord
         ];
     }
 
-
     public function upload()
     {
         if ($this->validate()) {
-
-            $this->logo->saveAs(Url::to('@frontend/web/uploads/clients/').   $this->logo->baseName . '.' . $this->logo->extension);
-            ImageBox::thumbnail(Url::to('@frontend/web/uploads/clients/'). $this->logo->baseName . '.' . $this->logo->extension, 640, 350)
-                ->resize(new Box(640,350))
-                ->save(Url::to('@frontend/web/uploads/clients/thumbs/') . $this->logo->baseName  . '.' . $this->logo->extension,
+            $this->logo->saveAs(Url::to('@agency/web/uploads/clients/').$this->logo->baseName.'.'.$this->logo->extension);
+            ImageBox::thumbnail(Url::to('@agency/web/uploads/clients/').$this->logo->baseName.'.'.$this->logo->extension, 640, 350)
+                ->resize(new Box(640, 350))
+                ->save(Url::to('@agency/web/uploads/clients/thumbs/').$this->logo->baseName.'.'.$this->logo->extension,
                         ['quality' => 80]);
 
             return true;
