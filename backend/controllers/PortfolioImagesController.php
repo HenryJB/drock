@@ -35,13 +35,14 @@ class PortfolioImagesController extends Controller
 
     /**
      * Lists all PortfolioImage models.
+     *
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
             'query' => PortfolioImage::find(),
-            'pagination' =>['pageSize'=>5],
+            'pagination' => ['pageSize' => 5],
         ]);
 
         return $this->render('index', [
@@ -51,8 +52,11 @@ class PortfolioImagesController extends Controller
 
     /**
      * Displays a single PortfolioImage model.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
@@ -65,36 +69,34 @@ class PortfolioImagesController extends Controller
     /**
      * Creates a new PortfolioImage model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return mixed
      */
     public function actionCreate()
     {
-      ini_set('memory_limit','32M');
+        ini_set('memory_limit', '32M');
         $model = new PortfolioImage();
 
         if ($model->load(Yii::$app->request->post())) {
-              $photos = UploadedFile::getInstances($model, 'photos');
-              $portfolio_id = $model->portfolio_id ;
-              foreach ($photos as  $file) {
-                  //$model = new PortfolioImage();
-                  $model->portfolio_id = $portfolio_id;
-                  $model->photos= $file;
-                  $model->date = date('Y-m-d');
+            $photos = UploadedFile::getInstances($model, 'photos');
+            $portfolio_id = $model->portfolio_id;
+            foreach ($photos as  $file) {
+                //$model = new PortfolioImage();
+                $model->portfolio_id = $portfolio_id;
+                $model->photos = $file;
+                $model->date = date('Y-m-d');
 
-                  $file->saveAs(Url::to('@frontend/web/uploads/portfolios-images/').   $file->baseName . '.' . $file->extension);
-                  ImageBox::thumbnail(Url::to('@frontend/web/uploads/portfolios-images/'). $file->baseName . '.' . $file->extension, 293, 293)
-                    ->resize(new Box(293,293))
-                    ->save(Url::to('@frontend/web/uploads/portfolios-images/thumbs/') . $file->baseName  . '.' . $file->extension,
+                $file->saveAs(Url::to('@frontend/web/uploads/portfolios-images/').$file->baseName.'.'.$file->extension);
+                ImageBox::thumbnail(Url::to('@frontend/web/uploads/portfolios-images/').$file->baseName.'.'.$file->extension, 293, 293)
+                    ->resize(new Box(293, 293))
+                    ->save(Url::to('@frontend/web/uploads/portfolios-images/thumbs/').$file->baseName.'.'.$file->extension,
                               ['quality' => 80]);
 
-                  $model->save(false);
-                  $model = new PortfolioImage();
+                $model->save(false);
+                $model = new PortfolioImage();
+            }
 
-                }
-
-                return $this->redirect(['index']);
-
-
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -105,16 +107,41 @@ class PortfolioImagesController extends Controller
     /**
      * Updates an existing PortfolioImage model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $image = Url::to('@agency/web/uploads/portfolios-images/').$model->photos;
+        $thumbnail = Url::to('@agency/web/uploads/portfolios-images/thumbs').$model->photos;
+
+        if ($model->load(Yii::$app->request->post())) {
+            $photos = UploadedFile::getInstances($model, 'photos');
+
+            foreach ($photos as $photo) {
+                $model->photos = $photo;
+
+                $photo->saveAs(Url::to('@agency/web/uploads/portfolios-images/').$photo->baseName.'.'.$photo->extension);
+
+                ImageBox::thumbnail(Url::to('@agency/web/uploads/portfolios-images/').$photo->baseName.'.'.$photo->extension, 293, 293)
+                    ->resize(new Box(293, 293))
+                    ->save(
+                        Url::to('@agency/web/uploads/portfolios-images/thumbs/').$photo->baseName.'.'.$photo->extension,
+                        ['quality' => 80]
+                    );
+
+                if ($model->save(false)) {
+                    $this->deleteImages($image, $thumbnail);
+
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
         }
 
         return $this->render('update', [
@@ -122,11 +149,20 @@ class PortfolioImagesController extends Controller
         ]);
     }
 
+    protected function deleteImages($image, $thumbnail)
+    {
+        @unlink($image);
+        @unlink($thumbnail);
+    }
+
     /**
      * Deletes an existing PortfolioImage model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -139,8 +175,11 @@ class PortfolioImagesController extends Controller
     /**
      * Finds the PortfolioImage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return PortfolioImage the loaded model
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
