@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use Yii;
 use yii\imagine\Image as ImageBox;
 use Imagine\Image\Box;
 use yii\helpers\Url;
@@ -57,11 +56,10 @@ class About extends \yii\db\ActiveRecord
     public function upload()
     {
         if ($this->validate()) {
-
-            $this->photo->saveAs(Url::to('@frontend/web/uploads/abouts/').   $this->photo->baseName . '.' . $this->photo->extension);
-            ImageBox::thumbnail(Url::to('@frontend/web/uploads/abouts/'). $this->photo->baseName . '.' . $this->photo->extension, 640, 350)
-                ->resize(new Box(640,350))
-                ->save(Url::to('@frontend/web/uploads/abouts/thumbs/') . $this->photo->baseName  . '.' . $this->photo->extension,
+            $this->photo->saveAs(Url::to('@agency/web/uploads/abouts/').$this->photo->baseName.'.'.$this->photo->extension);
+            ImageBox::thumbnail(Url::to('@agency/web/uploads/abouts/').$this->photo->baseName.'.'.$this->photo->extension, 640, 350)
+                ->resize(new Box(640, 350))
+                ->save(Url::to('@agency/web/uploads/abouts/thumbs/').$this->photo->baseName.'.'.$this->photo->extension,
                         ['quality' => 80]);
 
             return true;
