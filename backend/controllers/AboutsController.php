@@ -8,8 +8,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
-use yii\helpers\Url;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 
 /**
  * AboutsController implements the CRUD actions for About model.
@@ -33,6 +33,7 @@ class AboutsController extends Controller
 
     /**
      * Lists all About models.
+     *
      * @return mixed
      */
     public function actionIndex()
@@ -48,8 +49,11 @@ class AboutsController extends Controller
 
     /**
      * Displays a single About model.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
@@ -62,6 +66,7 @@ class AboutsController extends Controller
     /**
      * Creates a new About model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return mixed
      */
     public function actionCreate()
@@ -69,18 +74,15 @@ class AboutsController extends Controller
         $model = new About();
 
         if ($model->load(Yii::$app->request->post())) {
-
             $model->photo = UploadedFile::getInstance($model, 'photo');
             $model->date = date('Y-m-d');
 
-            if($model->photo!==null){
-
-              if ($model->save() && $model->upload()) {
-                  return $this->redirect(['view', 'id' => $model->id]);
-              }
+            if ($model->photo !== null) {
+                if ($model->save() && $model->upload()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
-
-          }
+        }
 
         return $this->render('create', [
             'model' => $model,
@@ -90,16 +92,28 @@ class AboutsController extends Controller
     /**
      * Updates an existing About model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $image = Url::to('@agency/web/uploads/abouts/').$model->photo;
+        $thumbnail = Url::to('@agency/web/uploads/abouts/thumbs').$model->photo;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->photo = UploadedFile::getInstance($model, 'photo');
+
+            if ($model->photo !== null) {
+                $this->deleteImages($image, $thumbnail);
+                if ($model->save() && $model->upload()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
         }
 
         return $this->render('update', [
@@ -107,11 +121,20 @@ class AboutsController extends Controller
         ]);
     }
 
+    protected function deleteImages($image, $thumbnail)
+    {
+        @unlink($image);
+        @unlink($thumbnail);
+    }
+
     /**
      * Deletes an existing About model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -124,8 +147,11 @@ class AboutsController extends Controller
     /**
      * Finds the About model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return About the loaded model
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

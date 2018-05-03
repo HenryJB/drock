@@ -1,6 +1,7 @@
 <?php
 
 namespace common\models;
+
 use Yii;
 use yii\imagine\Image as ImageBox;
 use Imagine\Image\Box;
@@ -55,17 +56,16 @@ class Blog extends \yii\db\ActiveRecord
         ];
     }
 
-
     public function upload()
     {
         if ($this->validate()) {
-           //$imageName = Yii::$app->security->generateRandomString();
-            $this->photo->saveAs(Url::to('@frontend/web/uploads/posts/').   $this->photo->baseName . '.' . $this->photo->extension);
-            ImageBox::thumbnail(Url::to('@frontend/web/uploads/posts/'). $this->photo->baseName . '.' . $this->photo->extension, 640, 350)
-                ->resize(new Box(640,350))
-                ->save(Url::to('@frontend/web/uploads/posts/thumbs/') . $this->photo->baseName  . '.' . $this->photo->extension,
+            //$imageName = Yii::$app->security->generateRandomString();
+            $this->photo->saveAs(Url::to('@agency/web/uploads/posts/').$this->photo->baseName.'.'.$this->photo->extension);
+            ImageBox::thumbnail(Url::to('@agency/web/uploads/posts/').$this->photo->baseName.'.'.$this->photo->extension, 640, 350)
+                ->resize(new Box(640, 350))
+                ->save(Url::to('@agency/web/uploads/posts/thumbs/').$this->photo->baseName.'.'.$this->photo->extension,
                         ['quality' => 80]);
-          //  unlink(self::IMG_PATH  . $this->image->baseName . '.'  . $this->image->extension);
+
             return true;
         } else {
             return false;

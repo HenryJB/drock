@@ -16,17 +16,17 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="card-body">
               <div class="blog-view">
 
-                <h3><?= Html::encode($this->title) ?></h3>
+                <h3><?= Html::encode($this->title); ?></h3>
 
                 <p>
-                    <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
                     <?= Html::a('Delete', ['delete', 'id' => $model->id], [
                         'class' => 'btn btn-danger',
                         'data' => [
                             'confirm' => 'Are you sure you want to delete this item?',
                             'method' => 'post',
                         ],
-                    ]) ?>
+                    ]); ?>
                 </p>
 
                 <?= DetailView::widget([
@@ -40,14 +40,13 @@ $this->params['breadcrumbs'][] = $this->title;
                          'attribute' => 'photo',
                          'format' => 'raw',
                          'value' => function ($model) {
-                            if ($model->photo!=''){
-                               return Html::img("@frontend/web/uploads/posts/thumbs/$model->photo", ["width"=>"50px", "height"=>"auto"]);
-
-                            }
-                          }
+                             if ($model->photo != '') {
+                                 return Html::img("@agency/web/uploads/posts/thumbs/$model->photo", ['width' => '50px', 'height' => 'auto']);
+                             }
+                         },
                          ],
                     ],
-                ]) ?>
+                ]); ?>
               </div>
             </div>
           </div>
