@@ -314,14 +314,14 @@
 }
 
 #scroll-box {
-  position: relative;
-  width: 243px;
-  height: 150px;
-  background-color: #fff;
-  left: 108px;
-  top: -540px;
-  color: #ffffff;
-  overflow : hidden;
+	position: relative;
+    width: 260px;
+    height: 165px;
+    background-color: #fff;
+    left: 438px;
+    top: -585px;
+    color: #ffffff;
+    overflow: hidden;
 }
 
 .typer{

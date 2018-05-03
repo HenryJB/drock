@@ -503,7 +503,7 @@ h3{
 	border: 1px 1px 1px #eeeeee !important;
 	padding: 1px;
 	flex-basis: 16.66666666666667%;
-    height: 180px;
+    height: 100px;
     width: 16.66666666666667%;
     border: 1px solid #ebebeb;
     background-color: #fff;
@@ -575,7 +575,7 @@ aside{
 	padding: 110px 0 140px;
 }
 #features{
-	background: #000000 no-repeat top center;
+	background: url('../img/services-bg.jpg') #000000 no-repeat top center;
 	background-size: cover;
 	padding: 100px 0;
 }

@@ -54,9 +54,9 @@ AppAsset::register($this);
       <div class="col-lg-10 col-md-11 col-sm-10 col-xs-12">
         <nav class="nav-collapse">
           <ul>
-            <!-- <li class="menu-item active">
-              <a href="#banner" data-scroll>Home</a>
-            </li> -->
+            <li class="menu-item">
+              <a href="" data-scroll>Home</a>
+            </li>
             <li class="menu-item">
               <a href="#agency" data-scroll>Who We Are</a>
             </li>
@@ -72,9 +72,9 @@ AppAsset::register($this);
             <li class="menu-item">
               <a href="#ourteam" data-scroll>Team</a>
             </li>
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="#newblog" data-scroll>Blog</a>
-            </li>
+            </li> -->
             <li class="menu-item">
               <a href="#contact" data-scroll>Contact</a>
             </li>

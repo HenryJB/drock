@@ -47,7 +47,7 @@ AppAsset::register($this);
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     <!-- Logo icon -->
-                    <b>Del-York Backend</b>
+                    <b>Del-York</b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
 
@@ -281,7 +281,9 @@ AppAsset::register($this);
                     <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-list"></i><span class="hide-menu">About</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><?= Html::a('New', ['abouts/create'], ['class' => '']) ?></li>
-                            <li><?= Html::a('About Del-York', ['abouts/index'], ['class' => '']) ?></li>
+                            <li><?= Html::a('Del-York', ['abouts/index'], ['class' => '']) ?></li>
+                            <li><?= Html::a('The CEO', ['ceo/index'], ['class' => '']) ?></li>
+                            <li><?= Html::a('CEO Photos', ['ceo-photos/index'], ['class' => '']) ?></li>
                         </ul>
                     </li>
 

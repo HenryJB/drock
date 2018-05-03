@@ -45,7 +45,7 @@ AppAsset::register($this);
 <!-- Main-Navigation -->
 <header id="main-navigation">
     <div id="navigation" data-spy="affix" data-offset-top="20">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <ul class="top-right text-right">
@@ -90,11 +90,30 @@ AppAsset::register($this);
                                     <?= Html::a('Home', ['index'], ['class'=>'page-scroll'])?>
 
                                 </li>
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    About us
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <ul>
+                                      <li>
+                                          <a class="dropdown-item" href="">History</a>
+                                      </li>
+                                      <li>
+                                          <a class="dropdown-item" href="http://localhost/delyork/main/web/ceo/index">Meet the CEO</a>
+                                      </li>
+                                    </ul>
+
+
+
+                                  </div>
+                                </li>
+
                                 <li>
-                                    <a href="http://localhost/delyork/agency/web/" class="page-scroll">Creative Agency</a>
+                                    <a href="http://localhost/delyork/agency/web/" class="page-scroll" target="_blank">Creative Agency</a>
                                 </li>
                                 <li>
-                                  <a href="http://localhost/delyork/academy/web/" class="page-scroll">Creative Academy</a>
+                                  <a href="http://localhost/delyork/academy/web/" class="page-scroll" target="_blank">Creative Academy</a>
 
                                 </li>
                                 <li>
