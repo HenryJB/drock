@@ -22,8 +22,7 @@ class AppAsset extends AssetBundle
         'css/portfolio/swiper.min.css',
         'css/portfolio/style.css',
         'fonts/fonts.css',
-
-
+        'css/media_queries/laptop_query.css',
     ];
     public $js = [
       'js/jquery.min.js',
@@ -38,7 +37,6 @@ class AppAsset extends AssetBundle
       'js/portfolio/isotope.pkgd.min.js',
       'js/portfolio/imagesloaded.pkgd.min.js',
       'js/portfolio/main.js',
-
     ];
     public $depends = [
         'yii\web\YiiAsset',
