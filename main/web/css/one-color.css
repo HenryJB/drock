@@ -1,6 +1,26 @@
  @charset "utf-8";
  /* CSS Document */
 
+ /* new menu styles */
+
+ div.hidden {
+     transform: scale(0);
+ }
+
+ #fixed-collapse-navbar {
+     transition: all 0.3s ease 0s;
+     transform-origin: 100% 50%;
+ }
+
+ .menu-bar {
+     color:white !important;
+     font-size: 28px !important;
+ }
+
+ ul.top-right li a:hover.menu-bar {
+     color: #3b5998;
+ }
+
  .green {
      background: #82b440;
  }
