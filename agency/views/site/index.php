@@ -117,16 +117,14 @@ $this->title = 'Del-York Creative Agency';
   	</article>
 
   </div>
-  				<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-  					<img src="img/services1.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s" width="600" height="651" align="right"/>
-  						<div class="col-lg-12">
-  								<div id="scroll-box"  class="os-animation" data-os-animation="slideIn" data-os-animation-delay="" >
-  									<img src="img/scroller-services.jpg" class="os-animation" />
-  								</div>
-  						</div>
-
-
-  				</div>
+      <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+        <img src="img/services1.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s" width="600" height="651" align="right"/>
+          <div class="col-lg-12">
+              <div id="scroll-box"  class="os-animation" data-os-animation="slideIn" data-os-animation-delay="" >
+                <img src="img/scroller-services.jpg" class="os-animation" />
+              </div>
+          </div>
+      </div>
   			</div>
   		</div>
   </section>
@@ -168,7 +166,6 @@ $this->title = 'Del-York Creative Agency';
 				</div>
 			</div>
 			<div class="row">
-<<<<<<< HEAD
         <?php if (count($blogs) > 0) : ?>
           <?php foreach ($blogs as $blog): ?>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -180,17 +177,6 @@ $this->title = 'Del-York Creative Agency';
 				</div>
       <?php endforeach; ?>
     <?php endif; ?>
-=======
-
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<article class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.5s">
-						<a href="#"></a>
-						<a href="#"><h4></h4></a>
-						<p class="innersmall"></p>
-					</article>
-				</div>
-
->>>>>>> 6d0de2c92d79dfdecd43f412a515e2ac633b7bae
 			</div>
 		</div>
 	</section> -->

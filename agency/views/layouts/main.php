@@ -5,23 +5,37 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use agency\assets\AppAsset;
-use common\widgets\Alert;
 
 AppAsset::register($this);
+
+if (\Yii::getAlias('@device') == 'mobile' || \Yii::getAlias('@device') == 'tablet') {
+    $this->registerCssFile('@web/css/media_queries/scrollbox.css', [
+          'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+          'media' => 'screen',
+      ], 'scrollbox');
+    $this->registerCssFile('@web/css/media_queries/skewbox.css', [
+          'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+          'media' => 'screen',
+      ], 'skewbox');
+} else {
+    $this->registerCssFile('@web/css/media_queries/laptop_query.css', [
+          'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+          'media' => 'screen',
+      ], 'laptop');
+}
+
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language; ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= Yii::$app->charset; ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <?php $this->registerCsrfMetaTags(); ?>
+    <title><?= Html::encode($this->title); ?></title>
+    <?php $this->head(); ?>
 
     <!--CSS-->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -30,7 +44,7 @@ AppAsset::register($this);
 </head>
 <body>
 
-<?php $this->beginBody() ?>
+<?php $this->beginBody(); ?>
 <div class="se-pre-con">
   <div class="cssload-container">
     <ul class="cssload-flex-container">
@@ -115,7 +129,7 @@ AppAsset::register($this);
 <!-- header -->
 
 
-  <?= $content ?>
+  <?= $content; ?>
 
 
   <footer>
@@ -123,13 +137,13 @@ AppAsset::register($this);
       <div class="row">
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <p class="innersmall footerlogo">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+          <p class="innersmall footerlogo">&copy; <?= Html::encode(Yii::$app->name); ?> <?= date('Y'); ?></p>
         </div>
       </div>
     </div>
   </footer>
 
-<?php $this->endBody() ?>
+<?php $this->endBody(); ?>
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>
