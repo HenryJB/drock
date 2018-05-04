@@ -23,8 +23,6 @@ class AppAsset extends AssetBundle
         'css/jPushMenu.css',
         'css/onepage.css',
         'css/one-color.css',
-
-
     ];
     public $js = [
       'js/jquery2.1.4.js',
@@ -43,8 +41,8 @@ class AppAsset extends AssetBundle
       'js/jquery.fancybox-thumbs.js',
       'js/jquery.fancybox-media.js',
       'js/jPushMenu.js',
-      'js/functions.js'
-
+      'js/functions.js',
+      'js/tooglemenu.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

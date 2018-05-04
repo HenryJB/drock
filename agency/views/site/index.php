@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+
 $this->title = 'Del-York Creative Agency';
 ?>
 <div class="site-index">
@@ -46,9 +47,9 @@ $this->title = 'Del-York Creative Agency';
 	<section id="agency">
 		<div class="container">
 			<div class="row">
-        <?php if(count($aboutModel)>0): ?>
+        <?php if (count($aboutModel) > 0): ?>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <?=Html::img('img/about.png', ['class'=>'os-animation',  'data-os-animation'=>'zoomIn', 'data-os-animation-delay'=>'0.3s',  'align'=>'left' ]) ?>
+          <?=Html::img('img/about.png', ['class' => 'os-animation',  'data-os-animation' => 'zoomIn', 'data-os-animation-delay' => '0.3s',  'align' => 'left']); ?>
 					<!-- <img src="img/about.png" alt="" id="" data-os-animation="zoomIn" data-os-animation-delay="0.3s"  align="left" width="1400px" height="auto" /> -->
 					<div id="skew-filler-box" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="" >
 						<img src="img/scroller-about.jpg" />
@@ -61,8 +62,8 @@ $this->title = 'Del-York Creative Agency';
 					<br />
 					<article class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.5s">
 
-						<h4><?= $aboutModel->title?></h4>
-              <?=  $aboutModel->body?>
+						<h4><?= $aboutModel->title; ?></h4>
+              <?=  $aboutModel->body; ?>
 
 
 
@@ -85,25 +86,25 @@ $this->title = 'Del-York Creative Agency';
   	<div class="innersmall">
 
   		<div class="panel-group" id="accordion">
-        <?php if(count($services)> 0):?>
+        <?php if (count($services) > 0):?>
 
-            <?php $c =1; ?>
-            <?php foreach($services as $service):?>
+            <?php $c = 1; ?>
+            <?php foreach ($services as $service):?>
 
         			<div class="panel panel-default">
         				<div class="panel-heading">
-        					<h4 data-toggle="collapse" data-parent="#accordion" href="#collapse<?=$c;?>" class="panel-title expand">
+        					<h4 data-toggle="collapse" data-parent="#accordion" href="#collapse<?=$c; ?>" class="panel-title expand">
         							<div class="right-arrow pull-right">+</div>
-        						<a href="#"><?= $service->title?></a>
+        						<a href="#"><?= $service->title; ?></a>
         					</h4>
         				</div>
-        				<div id="collapse<?= $c;?>" class="panel-collapse collapse">
+        				<div id="collapse<?= $c; ?>" class="panel-collapse collapse">
         					<div class="panel-body">
-                    <?=html_entity_decode($service->content)?>
+                    <?=html_entity_decode($service->content); ?>
         					</div>
         				</div>
         			</div>
-              <?php $c ++; ?>
+              <?php ++$c; ?>
             <?php endforeach; ?>
           <?php endif; ?>
 
@@ -116,16 +117,14 @@ $this->title = 'Del-York Creative Agency';
   	</article>
 
   </div>
-  				<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-  					<img src="img/services1.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s" width="600" height="651" align="right"/>
-  						<div class="col-lg-12">
-  								<div id="scroll-box"  class="os-animation" data-os-animation="slideIn" data-os-animation-delay="" >
-  									<img src="img/scroller-services.jpg" class="os-animation" />
-  								</div>
-  						</div>
-
-
-  				</div>
+      <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+        <img src="img/services1.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s" width="600" height="651" align="right"/>
+          <div class="col-lg-12">
+              <div id="scroll-box"  class="os-animation" data-os-animation="slideIn" data-os-animation-delay="" >
+                <img src="img/scroller-services.jpg" class="os-animation" />
+              </div>
+          </div>
+      </div>
   			</div>
   		</div>
   </section>
@@ -138,16 +137,16 @@ $this->title = 'Del-York Creative Agency';
                 <h3 class="text-center">Clients</h3>
                 <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
                     <!-- Single clients -->
-                    <?php if(count($clients)> 0):?>
+                    <?php if (count($clients) > 0):?>
 
-                        <?php $c =1; ?>
-                        <?php foreach($clients as $client):?>
+                        <?php $c = 1; ?>
+                        <?php foreach ($clients as $client):?>
                       <div class="col-lg-2 col-xs-12 col-md-12 col-sm-12 client-logo">
                         <a href="#">
-                            <?= Html::img('uploads/clients/'.$client->logo, [''])?>
+                            <?= Html::img('uploads/clients/'.$client->logo, ['']); ?>
                         </a>
                     </div>
-                    <?php $c ++; ?>
+                    <?php ++$c; ?>
                   <?php endforeach; ?>
                 <?php endif; ?>
                 </div>
@@ -167,15 +166,17 @@ $this->title = 'Del-York Creative Agency';
 				</div>
 			</div>
 			<div class="row">
-
+        <?php if (count($blogs) > 0) : ?>
+          <?php foreach ($blogs as $blog): ?>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<article class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.5s">
-						<a href="#"></a>
-						<a href="#"><h4></h4></a>
-						<p class="innersmall"></p>
+						<a href="#"><?=Html::img('img/'.$blog->photo, ['alt' => '']); ?></a>
+						<a href="#"><h4><?=$blog->title; ?></h4></a>
+						<p class="innersmall"><?=$blog->post; ?></p>
 					</article>
 				</div>
-
+      <?php endforeach; ?>
+    <?php endif; ?>
 			</div>
 		</div>
 	</section> -->
@@ -529,12 +530,7 @@ $this->title = 'Del-York Creative Agency';
     </div>
   </section>
 
-  <div class="google-maps">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7098.94326104394!2d78.0430654485247!3d27.172909818538997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1385710909804"
-        width="600" height="450" frameborder="0" style="border:0;pointer-events:none;"></iframe>
-  </div>
 
-
-
+  <div id="google-maps" class="wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s"></div>
 
 </div>
