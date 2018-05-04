@@ -10,12 +10,16 @@ use agency\assets\AppAsset;
 AppAsset::register($this);
 
 if (\Yii::getAlias('@device') == 'mobile' || \Yii::getAlias('@device') == 'tablet') {
-    $this->registerCssFile('@web/css/media_queries/scrollbox.css', [
-          'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+    $this->registerCssFile('@web/css/media_queries/scrollbox.css',
+    [
+          'depends' => [\yii\bootstrap\BootstrapAsset::className(),
+        ],
           'media' => 'screen',
       ], 'scrollbox');
-    $this->registerCssFile('@web/css/media_queries/skewbox.css', [
-          'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+    $this->registerCssFile('@web/css/media_queries/skewbox.css',
+    [
+          'depends' => [\yii\bootstrap\BootstrapAsset::className(),
+        ],
           'media' => 'screen',
       ], 'skewbox');
 } else {
