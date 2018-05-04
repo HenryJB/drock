@@ -1290,6 +1290,7 @@ website:   	http://www.themepunch.com
     position: absolute;
     visibility: hidden;
     -webkit-font-smoothing: antialiased !important;
+    color: #ffffff !important;
 }
 
 .tp-simpleresponsive img {
@@ -3446,18 +3447,21 @@ website:   	http://www.themepunch.com
 /* 'î ¨' */
 
 h2.tp-caption {
-    font-family: "raleway";
+    font-family: "CustomFont";
     text-transform: none;
     font-weight: 100;
+    color:#a40000!important;
+    letter-spacing: 20px !important;
     /*font-size: 60px !important;
 	  line-height:70px!important;
 	  margin-bottom:100px!important;*/
 }
 
 p.tp-caption {
-    font-family: "raleway";
+    font-family: "Century Gothic";
     text-transform: none;
     font-weight: 100;
+    color: #ffffff !important;
     /*font-size: 30px !important;
 	  line-height:24px!important;
 	  letter-spacing:2px;*/

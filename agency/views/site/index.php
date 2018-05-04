@@ -75,11 +75,11 @@ $this->title = 'Del-York Creative Agency';
 	</section>
   <!-- Agency -->
 
-  <section id="features">
-  <div class="container">
+  <section id="features" style="padding-left:20px;">
+  <div class="container-fluid">
   	<div class="row">
 
-  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
   <article class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s">
   	<h3 style="text-align:left">Services</h3>
@@ -117,8 +117,8 @@ $this->title = 'Del-York Creative Agency';
   	</article>
 
   </div>
-  				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-  					<img src="img/services1.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s" width="1000" height="651" align="left"/>
+  				<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+  					<img src="img/services1.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s" width="600" height="651" align="right"/>
   						<div class="col-lg-12">
   								<div id="scroll-box"  class="os-animation" data-os-animation="slideIn" data-os-animation-delay="" >
   									<img src="img/scroller-services.jpg" class="os-animation" />
@@ -158,16 +158,17 @@ $this->title = 'Del-York Creative Agency';
   </section>
 
 
-  <section id="newblog">
+  <!-- <section id="newblog">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<!-- <h2 class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s"> BLOG</h2> -->
-					<!-- <img src="img/b.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s"/> -->
+					<h2 class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s"> BLOG</h2>
+				 <img src="img/b.png" alt="" class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.3s"/>
 					<h3 class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.4s">BLOG</h3>
 				</div>
 			</div>
 			<div class="row">
+<<<<<<< HEAD
         <?php if (count($blogs) > 0) : ?>
           <?php foreach ($blogs as $blog): ?>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -179,9 +180,20 @@ $this->title = 'Del-York Creative Agency';
 				</div>
       <?php endforeach; ?>
     <?php endif; ?>
+=======
+
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<article class="os-animation" data-os-animation="zoomIn" data-os-animation-delay="0.5s">
+						<a href="#"></a>
+						<a href="#"><h4></h4></a>
+						<p class="innersmall"></p>
+					</article>
+				</div>
+
+>>>>>>> 6d0de2c92d79dfdecd43f412a515e2ac633b7bae
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 
   <section class="no-padding wow fadeIn" id="portfolios">
