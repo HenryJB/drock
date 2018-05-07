@@ -30,7 +30,7 @@ AppAsset::register($this);
     <link rel="shortcut icon" href="images/favicon.png">
 </head>
 
-<body id="page-top" data-spy="scroll" data-target="#fixed-collapse-navbar" data-offset="120">
+<body>
 
     <?php $this->beginBody(); ?>
 
@@ -98,7 +98,7 @@ AppAsset::register($this);
                             </li>
                         </ul>
 
-                        <nav class="navbar navbar-default ">
+                        <nav class="navbar navbar-primary ">
                             <div class="navbar-header page-scroll">
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="true">
                                     <span class="icon-bar top-bar"></span>

@@ -10,4 +10,11 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+
+    'bootstrap' => ['devicedetect'],
+    'components' => [
+    	'devicedetect' => [
+    		'class' => 'alexandernst\devicedetect\DeviceDetect'
+    	],
+    ]
 ];

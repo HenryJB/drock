@@ -12,6 +12,9 @@ RewriteRule .* agency/web/$0
 # handle the case of main
 RewriteRule .* main/web/$0
 
+# handle the case of agency
+RewriteRule .* agency/web/$0
+
 # Uncomment the following, if you want speaking URL
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

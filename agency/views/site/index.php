@@ -75,7 +75,7 @@ $this->title = 'Del-York Creative Agency';
 	</section>
   <!-- Agency -->
 
-  <section id="features" style="padding-left:20px;">
+  <section id="features" style="padding-left:60px;">
   <div class="container-fluid">
   	<div class="row">
 
@@ -422,7 +422,7 @@ $this->title = 'Del-York Creative Agency';
   </section>
 
 
-  <section id="ourteam">
+  <!-- <section id="ourteam"> -->
     <div class="container">
       <!-- <div class="row">
 
