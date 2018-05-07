@@ -17,7 +17,8 @@ class AppAsset extends AssetBundle
         'css/lib/owl.theme.default.min.css',
         'css/lib/bootstrap/bootstrap.min.css',
         'css/helper.css',
-        'css/style.css'
+        'css/style.css',
+        'css/student/main.css',
     ];
     public $js = [
   
@@ -37,7 +38,9 @@ class AppAsset extends AssetBundle
       'js/lib/chartist/chartist.min.js',
       'js/lib/chartist/chartist-plugin-tooltip.min.js',
       'js/lib/chartist/chartist-init.js',
-      'js/custom.min.js'
+      'js/custom.min.js',
+        'js/profile/student/klorofil-common.js',
+        'js/profile/student/jquery-slimscroll/jquery-slimscroll.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
