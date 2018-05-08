@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a76d8cfde088cfd283b6f586a956b60d",
+    "content-hash": "967b1baa20886c850cce94485cb7b8c2",
     "packages": [
         {
             "name": "alexandernst/yii2-device-detect",
@@ -315,6 +315,57 @@
             "time": "2018-02-26T19:39:55+00:00"
         },
         {
+            "name": "motion/yii2-language-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/motion-web-production/yii2-language-provider.git",
+                "reference": "018d829ee12c2de653e799c374616b965c49e22d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/motion-web-production/yii2-language-provider/zipball/018d829ee12c2de653e799c374616b965c49e22d",
+                "reference": "018d829ee12c2de653e799c374616b965c49e22d",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "require-dev": {
+                "codeception/codeception": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "motion\\i18n\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Kuprienko",
+                    "email": "vldmr.kuprienko@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package provides interface for language provider for Yii2 Framework",
+            "keywords": [
+                "i18n",
+                "language",
+                "provider",
+                "yii2"
+            ],
+            "time": "2018-03-18T17:06:20+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -367,6 +418,120 @@
                 "mailer"
             ],
             "time": "2018-01-23T07:37:21+00:00"
+        },
+        {
+            "name": "yiimaker/yii2-email-templates",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiimaker/yii2-email-templates.git",
+                "reference": "08cd0cab9338155c23468e375031abe68640212e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiimaker/yii2-email-templates/zipball/08cd0cab9338155c23468e375031abe68640212e",
+                "reference": "08cd0cab9338155c23468e375031abe68640212e",
+                "shasum": ""
+            },
+            "require": {
+                "motion/yii2-language-provider": "~2.1",
+                "php": ">=5.6.0",
+                "yiimaker/yii2-translatable": "~1.0",
+                "yiisoft/yii2": "^2.0.13"
+            },
+            "require-dev": {
+                "codeception/codeception": "~2.0",
+                "yiisoft/yii2-gii": "~2.0.0"
+            },
+            "suggest": {
+                "vova07/yii2-imperavi-widget": "If you want use Imperavi editor you should install this package",
+                "yiisoft/yii2-bootstrap": "If you want use default view files in backend you should install this package"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ymaker\\email\\templates\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Kuprienko",
+                    "email": "vldmr.kuprienko@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Extension for creating of email templates and manage using your site dashboard",
+            "keywords": [
+                "email",
+                "gii",
+                "module",
+                "placeholders",
+                "templates",
+                "yii2"
+            ],
+            "time": "2018-04-26T06:09:53+00:00"
+        },
+        {
+            "name": "yiimaker/yii2-translatable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiimaker/yii2-translatable.git",
+                "reference": "7aa51fd2ed0c4a3a23913e995d1cd9c997d6cec1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiimaker/yii2-translatable/zipball/7aa51fd2ed0c4a3a23913e995d1cd9c997d6cec1",
+                "reference": "7aa51fd2ed0c4a3a23913e995d1cd9c997d6cec1",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "^2.0.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "~2.3"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ymaker\\translatable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Kuprienko",
+                    "email": "vldmr.kuprienko@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Translatable behavior aggregates logic of linking translations to the primary model",
+            "keywords": [
+                "Behavior",
+                "ar",
+                "translatable",
+                "translation",
+                "translations",
+                "yii2"
+            ],
+            "time": "2018-04-22T12:15:30+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -3367,6 +3532,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "yiimaker/yii2-email-templates": 20,
         "kartik-v/yii2-widget-fileinput": 20
     },
     "prefer-stable": false,
