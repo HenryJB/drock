@@ -270,6 +270,15 @@ AppAsset::register($this);
 
                         </ul>
                     </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Alumni</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['alumni/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Lists', ['alumni/index'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('New Poject', ['alumni-projects/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Project Lists', ['alumni-projects/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
                     <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Email Template</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><?= Html::a('New', ['email-template/create'], ['class' => 'dropdown-item']) ?></li>

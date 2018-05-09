@@ -46,7 +46,9 @@ class Student extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'gender', 'email_address', 'contact_address', 'occupation', 'year', 'country', 'state_id', 'date_of_birth', 'first_choice', 'reason', 'propose_project','information_source',  'terms_condition', 'date_registered'], 'required'],
+            [['first_name', 'last_name', 'gender', 'email_address', 'contact_address',
+                'occupation', 'year', 'country', 'state_id', 'date_of_birth', 'first_choice',
+                'reason', 'propose_project','information_source',  'terms_condition', 'date_registered'], 'required'],
             [['gender', 'contact_address',  'occupation', 'payment_status', 'approval_status', 'reason', 'propose_project','information_source'], 'string'],
             [['year', 'date_of_birth', 'date_registered'], 'safe'],
             [['state_id', 'first_choice', 'second_choice', 'sponsor_aid', 'sponsorship_status', 'terms_condition'], 'integer'],
