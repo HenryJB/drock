@@ -2,18 +2,21 @@
 
 namespace backend\controllers;
 
-use common\models\StudentSearch;
 use Yii;
-use common\models\Student;
-use yii\data\ActiveDataProvider;
+use common\models\Alumni;
+use common\models\AlumniSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image as ImageBox;
+use Imagine\Image\Box;
+use yii\helpers\Url;
 
 /**
- * StudentController implements the CRUD actions for Student model.
+ * AlumniController implements the CRUD actions for Alumni model.
  */
-class StudentController extends Controller
+class AlumniController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +34,12 @@ class StudentController extends Controller
     }
 
     /**
-     * Lists all Student models.
+     * Lists all Alumni models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new StudentSearch();
+        $searchModel = new AlumniSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +49,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Displays a single Student model.
+     * Displays a single Alumni model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,15 +62,27 @@ class StudentController extends Controller
     }
 
     /**
-     * Creates a new Student model.
+     * Creates a new Alumni model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Student();
+        $model = new Alumni();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->load(Yii::$app->request->post())) {
+                $model->photo = UploadedFile::getInstance($model, 'photo');
+
+                if ($model->photo !== null) {
+                    if ($model->save() && $model->upload()) {
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+                }
+            }
+
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -77,7 +92,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Updates an existing Student model.
+     * Updates an existing Alumni model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,7 +112,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Deletes an existing Student model.
+     * Deletes an existing Alumni model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +126,15 @@ class StudentController extends Controller
     }
 
     /**
-     * Finds the Student model based on its primary key value.
+     * Finds the Alumni model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Student the loaded model
+     * @return Alumni the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Student::findOne($id)) !== null) {
+        if (($model = Alumni::findOne($id)) !== null) {
             return $model;
         }
 

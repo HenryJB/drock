@@ -2,18 +2,18 @@
 
 namespace backend\controllers;
 
-use common\models\StudentSearch;
+use common\models\Alumni;
 use Yii;
-use common\models\Student;
-use yii\data\ActiveDataProvider;
+use common\models\AlumniProject;
+use common\models\AlumniProjectsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * StudentController implements the CRUD actions for Student model.
+ * AlumniProjectsController implements the CRUD actions for AlumniProject model.
  */
-class StudentController extends Controller
+class AlumniProjectsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +31,12 @@ class StudentController extends Controller
     }
 
     /**
-     * Lists all Student models.
+     * Lists all AlumniProject models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new StudentSearch();
+        $searchModel = new AlumniProjectsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +46,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Displays a single Student model.
+     * Displays a single AlumniProject model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,13 +59,27 @@ class StudentController extends Controller
     }
 
     /**
-     * Creates a new Student model.
+     * Creates a new AlumniProject model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
+    public function actionRelatedStates($id)
+    {
+        $alumnis = Alumni::find()->where(['id'=>$id])->all();
+        if(count($alumnis)> 0){
+
+            foreach ($alumnis as $alumni) {
+                echo '<option value="'.$alumni->id.'">'.$alumni->firstname.' '.$alumni->firstname.'</option>';
+
+            }
+        }else {
+            echo '<option> </option>';
+        }
+    }
     public function actionCreate()
     {
-        $model = new Student();
+        $model = new AlumniProject();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -77,7 +91,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Updates an existing Student model.
+     * Updates an existing AlumniProject model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,7 +111,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Deletes an existing Student model.
+     * Deletes an existing AlumniProject model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +125,15 @@ class StudentController extends Controller
     }
 
     /**
-     * Finds the Student model based on its primary key value.
+     * Finds the AlumniProject model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Student the loaded model
+     * @return AlumniProject the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Student::findOne($id)) !== null) {
+        if (($model = AlumniProject::findOne($id)) !== null) {
             return $model;
         }
 
