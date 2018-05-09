@@ -36,7 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     $path = '@web/uploads/alumni/'.$model->photo;
                                 ?>
                                 <label for="upload">
-                                <?= Html::img($path, ['alt'=>'user','id'=>'uploadPreview1', 'class'=>'img-circle'])?>
+                                <?= Html::img($path, ['alt'=>'user','id'=>'uploadPreview', 'class'=>'img-circle'])?>
+                                    <input type="file" id="upload" name="upload" onchange="UploadPreview();" >
                                 </label>
                                 <input type="file" id="upload" name="upload" onchange="UploadPreview();" >
                                 <h3 class="name"><?= $model->first_name; ?> <?= $model->last_name; ?></h3>
@@ -264,9 +265,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
         oFReader.onload = function (oFREvent) {
             document.getElementById("uploadPreview").src = oFREvent.target.result;
-            document.getElementById("uploadPreview1").src = oFREvent.target.result;
             $.ajax({
-
+                data: $('form').serialize(),
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                }
             });
         };
 

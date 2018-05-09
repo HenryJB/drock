@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\AfricanState;
 use common\models\CoursesCategory;
+use yii\web\UploadedFile;
 
 /**
  * StudentController implements the CRUD actions for Student model.
@@ -97,6 +98,22 @@ class StudentsController extends Controller
      }
 
 
+     public function actionAjaxSaveFiile(){
+         Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/images/';
+         $model = new Student();
+         if (Yii::$app->request->isPost) {
+             $model->load(Yii::$app->request->post());
+             $model->file = UploadedFile::getInstance($model, 'file');
+             var_dump($model);
+             die();
+             if ($model->validate()) {
+                 $model->file->saveAs(Yii::$app->params['uploadPath'] . $model->file->baseName . '.' . $model->file->extension);
+
+             }
+         }
+
+         return $this->render('upload', ['model' => $model]);
+     }
      public function actionRelatedStates($id)
      {
        $states = AfricanState::find()->where(['country'=>$id])->all();

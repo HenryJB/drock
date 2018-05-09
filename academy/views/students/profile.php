@@ -1,3 +1,9 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +23,11 @@
 <link href="/delyork/academy/web/font-awesome/font-awesome.min.css" rel="stylesheet">
 <link href="/delyork/academy/web/fonts/fonts.css" rel="stylesheet">
 
-
+    <style>
+        #upload{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -83,8 +93,15 @@
 						<div class="avatar-slide">
 
 								<span class="easy-chart avatar-chart" data-color="theme-inverse" data-percent="69" data-track-color="rgba(255,255,255,0.1)" data-line-width="5" data-size="118">
-										<span class="percent"></span>
-										<img alt="" src="../../web/images/avatar.png" class="circle">
+
+                                    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+                                    <label for="upload">
+                                        <?= Html::img('@web/admin/assets/img/avatar.png', ['alt'=>'user', 'id'=>'uploadPreview', 'class'=>'circle'])?>
+                                        <input type="file" id="upload" name="upload" onchange="UploadPreview();" >
+                                    </label>
+    </div>
+
+                                    <?php ActiveForm::end(); ?>
 								</span>
 								<!-- //avatar-chart-->
 
@@ -1172,7 +1189,29 @@
 <script src="/delyork/academy/web/js/profile/plugins/miscellaneous/miscellaneous.js"></script>
 <script src="/delyork/academy/web/js/profile/caplet.custom.js"></script>
 <script src="/delyork/academy/web/js/custom-script.js"></script>
+<script type="text/javascript">
+    function UploadPreview() {
+        var oFReader = new FileReader();
 
+        oFReader.readAsDataURL(document.getElementById("upload").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+            $.ajax({
+                url: '',
+                data: $('form').serialize(),
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        };
+
+
+    };
+
+
+</script>
 
 
 </body>
