@@ -16,6 +16,16 @@ return [
         'request' => [
             'csrfParam' => '_csrf-main',
         ],
+
+        'mailer' => [
+                'class' => 'yii\swiftmailer\Mailer',
+                'viewPath' => '@common/mail',
+                'transport' => [
+                    'class' => 'Swift_MailTransport',
+                ],
+                'useFileTransport' => false,
+            ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

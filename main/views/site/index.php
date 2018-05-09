@@ -45,8 +45,8 @@ $this->title = 'Del-York International';
                       <!-- MAIN IMAGE -->
                       <img src="images/main-banner4.jpg" alt="laptopmockup_sliderdy" data-bgfit="cover" data-bgposition="center center">
 
-                      <p class="tp-caption sft tp-resizeme" data-x="right" data-y="130" data-speed="500" data-start="1000" data-easing="Power3.easeInOut"
-                          data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 5;">We are
+                      <p class="tp-caption sft tp-resizeme text-right " data-x="right" data-y="130" data-speed="500" data-start="1000" data-easing="Power3.easeInOut"
+                          data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 5; padding-right:30px!important">We are
                       </p>
                       <!-- LAYER NR. 2 -->
                       <h2 class="header_ansly tp-caption fade tp-resizeme text-right" data-x="right" data-y="160" data-speed="500" data-start="1500" data-easing="Power3.easeInOut"
@@ -55,7 +55,7 @@ $this->title = 'Del-York International';
                           <br>Thinkers
                       </h2>
                       <!-- LAYER NR. 3 -->
-                      <p class="tp-caption sft tp-resizeme" data-x="right" data-y="310" data-speed="500" data-start="2000" data-easing="Power3.easeInOut"
+                      <p class="tp-caption sft tp-resizeme text-right" data-x="right" data-y="310" data-speed="500" data-start="2000" data-easing="Power3.easeInOut"
                           data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 5;">Our language is Creativity.
                       </p>
                       <div class="tp-caption fade tp-resizeme" data-x="right" data-y="420" data-speed="500" data-start="2800" data-easing="Power3.easeInOut"
@@ -68,7 +68,7 @@ $this->title = 'Del-York International';
                   <!-- SLIDE  -->
                   <li data-transition="fade" data-slotamount="6" data-delay="5000">
                       <!-- MAIN IMAGE -->
-                      <img src="images/banner6.jpg" alt="slidebg1" data-bgposition="center top">
+                      <img src="images/slider7.jpg" alt="slidebg1" data-bgposition="center top">
 
                       <!-- LAYER NR. 1 -->
                       <p class="tp-caption sft tp-resizeme" data-x="left" data-y="130" data-speed="500" data-start="1000" data-easing="Power3.easeInOut"

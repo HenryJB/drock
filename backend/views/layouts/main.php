@@ -61,61 +61,7 @@ AppAsset::register($this);
                     <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
                     <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                     <!-- Messages -->
-                    <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i></a>
-                        <div class="dropdown-menu animated zoomIn">
-                            <ul class="mega-dropdown-menu row">
 
-
-                                <li class="col-lg-3  m-b-30">
-                                    <h4 class="m-b-20">CONTACT US</h4>
-                                    <!-- Contact -->
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name"> </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Enter email"> </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-info">Submit</button>
-                                    </form>
-                                </li>
-                                <li class="col-lg-3 col-xlg-3 m-b-30">
-                                    <h4 class="m-b-20">List style</h4>
-                                    <!-- List style -->
-                                    <ul class="list-style-none">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-lg-3 col-xlg-3 m-b-30">
-                                    <h4 class="m-b-20">List style</h4>
-                                    <!-- List style -->
-                                    <ul class="list-style-none">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-lg-3 col-xlg-3 m-b-30">
-                                    <h4 class="m-b-20">List style</h4>
-                                    <!-- List style -->
-                                    <ul class="list-style-none">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                     <!-- End Messages -->
                 </ul>
                 <!-- User profile and search -->
@@ -301,6 +247,52 @@ AppAsset::register($this);
                         </ul>
                     </li>
 
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Courses Category</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['courses-category/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Category', ['courses-category/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Courses</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['courses/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Courses', ['courses/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Students</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['student/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Lists', ['student/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Alumni</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['alumni/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Lists', ['alumni/index'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('New Poject', ['alumni-projects/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Project Lists', ['alumni-projects/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Email Template</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['email-template/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Lists', ['email-template/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Email</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><?= Html::a('New', ['email/create'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Lists', ['email/index'], ['class' => 'dropdown-item']) ?></li>
+
+                        </ul>
+                    </li>
                     <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-file-o"></i><span class="hide-menu">Portfolios</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><?= Html::a('New', ['portfolios/create'], ['class' => '']) ?></li>
